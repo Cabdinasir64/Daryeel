@@ -1,0 +1,1353 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daryeel</title>
+    <link rel="stylesheet" href="output.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* Custom styles */
+        .nav-link {
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: #FF8F17;
+            left: 0;
+            bottom: -4px;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu {
+            transform: translateX(-100%);
+            transition: transform 0.5s ease;
+        }
+
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+
+        .dropdown {
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.5s ease;
+            transform: translateY(30px);
+        }
+
+        .group:hover .dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body class="font-['Poppins', sans-serif]">
+    <!-- Desktop & Mobile Header -->
+    <header
+        class="fixed top-0 left-0 w-full flex items-center justify-between px-6 py-4 bg-[#1a1a1a] shadow-lg z-50 md:px-20">
+        <a href="#" class="text-2xl text-white font-bold md:text-3xl hover:opacity-80 transition-opacity">
+
+            Dar<span class="text-[#FF8F17]">yeel</span>
+        </a>
+        <!-- Mobile Menu Button -->
+        <button class="md:hidden text-white hover:text-[#FF8F17] transition-colors" id="menuBtn">
+            <i class="fa fa-bars text-2xl"></i>
+        </button>
+        <!-- Desktop Navigation -->
+        <nav class="hidden md:block">
+            <ul class="flex items-center space-x-8">
+                <li><a href="#"
+                        class="nav-link text-white text-lg font-medium hover:text-[#FF8F17] transition-colors">Home</a>
+                </li>
+                <li><a href="#"
+                        class="nav-link text-white text-lg font-medium hover:text-[#FF8F17] transition-colors">About
+                        Us</a></li>
+                <li><a href="#"
+                        class="nav-link text-white text-lg font-medium hover:text-[#FF8F17] transition-colors">Services</a>
+                </li>
+                <li class="relative group">
+                    <a href="#"
+                        class="nav-link text-white text-lg font-medium hover:text-[#FF8F17] transition-colors flex items-center gap-2">
+                        Projects
+                        <i class="fa fa-caret-down transition-transform group-hover:rotate-180"></i>
+                    </a>
+                    <div class="dropdown absolute top-[55px] left-0 bg-white rounded-lg shadow-xl p-4 w-64">
+                        <ul class="space-y-2">
+                            <li><a href="#residential"
+                                    class="block text-gray-800 hover:text-[#FF8F17] hover:bg-gray-100 rounded px-4 py-2 transition-colors">Residential
+                                    Projects</a></li>
+                            <li><a href="#commercial"
+                                    class="block text-gray-800 hover:text-[#FF8F17] hover:bg-gray-100 rounded px-4 py-2 transition-colors">Commercial
+                                    Projects</a></li>
+                            <li><a href="#road"
+                                    class="block text-gray-800 hover:text-[#FF8F17] hover:bg-gray-100 rounded px-4 py-2 transition-colors">Road
+                                    Construction</a></li>
+                            <li><a href="#completed"
+                                    class="block text-gray-800 hover:text-[#FF8F17] hover:bg-gray-100 rounded px-4 py-2 transition-colors">Completed
+                                    Projects</a></li>
+                            <li><a href="#ongoing"
+                                    class="block text-gray-800 hover:text-[#FF8F17] hover:bg-gray-100 rounded px-4 py-2 transition-colors">Ongoing
+                                    Projects</a></li>
+                        </ul>
+
+                    </div>
+                </li>
+                <li><a href="#"
+                        class="nav-link text-white text-lg font-medium hover:text-[#FF8F17] transition-colors">Contact
+                        Us</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- Mobile Navigation -->
+    <div class="mobile-menu fixed top-0 left-0 h-full w-[80%] bg-[#1a1a1a] z-40 p-6 md:hidden">
+        <div class="flex flex-col space-y-6">
+            <a href="#" class="text-white text-xl font-medium hover:text-[#FF8F17] transition-colors">Home</a>
+            <a href="#" class="text-white text-xl font-medium hover:text-[#FF8F17] transition-colors">About Us</a>
+            <a href="#" class="text-white text-xl font-medium hover:text-[#FF8F17] transition-colors">Services</a>
+            <div class="relative">
+                <button
+                    class="text-white text-xl font-medium hover:text-[#FF8F17] transition-colors flex items-center gap-2"
+                    id="mobileProjectsBtn">
+                    Projects
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="hidden mt-4 ml-4 space-y-3">
+                    <a href="#residential"
+                        class="block text-gray-300 hover:text-[#FF8F17] transition-colors">Residential Projects</a>
+                    <a href="#commercial" class="block text-gray-300 hover:text-[#FF8F17] transition-colors">Commercial
+                        Projects</a>
+                    <a href="#road" class="block text-gray-300 hover:text-[#FF8F17] transition-colors">Road
+                        Construction</a>
+                    <a href="#completed" class="block text-gray-300 hover:text-[#FF8F17] transition-colors">Completed
+                        Projects</a>
+                    <a href="#ongoing" class="block text-gray-300 hover:text-[#FF8F17] transition-colors">Ongoing
+                        Projects</a>
+                </div>
+            </div>
+            <a href="#" class="text-white text-xl font-medium hover:text-[#FF8F17] transition-colors">Contact Us</a>
+        </div>
+    </div>
+    <!-- Hero Section -->
+    <div class="min-h-screen bg-[url(img/Background.jpg)] bg-center bg-cover bg-no-repeat relative flex items-center">
+        <!-- Overlay -->
+        <div class="absolute inset-0 w-full h-full bg-gradient-to-r from-black/80 to-black/50"></div>
+        <!-- Content Container -->
+        <div class="container px-6 md:px-20 relative z-10 pt-24">
+            <div class="max-w-3xl">
+                <!-- Main Heading -->
+                <h1 class="text-white mb-4">
+                    <span class="block text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold leading-tight">
+                        Daryeel Construction:
+                    </span>
+                    <span
+                        class="block text-[#FF8F17] text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mt-2 leading-tight">
+                        Building Your Dreams with Excellence
+                    </span>
+                </h1>
+                <!-- Subheading -->
+                <p class="text-gray-200 text-base sm:text-lg md:text-xl mb-6 max-w-2xl leading-relaxed">
+                    We specialize in high-quality residential, commercial, and road construction projects tailored to
+                    your needs.
+                </p>
+                <!-- Buttons -->
+                <div class="flex flex-col sm:flex-row gap-4 mb-8">
+                    <button
+                        class="px-4 py-2 md:px-6 md:py-3 bg-[#FF8F17] text-white text-base md:text-lg font-semibold rounded-lg 
+                             hover:bg-[#e67f0d] transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg">
+                        Get a Free Quote
+                    </button>
+                    <button class="px-4 py-2 md:px-6 md:py-3 border-2 border-white text-white text-base md:text-lg font-semibold 
+                             rounded-lg hover:bg-white hover:text-black transition-all duration-300">
+                        Learn More
+                    </button>
+                </div>
+                <!-- Stats Section -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+                    <div class="bg-black/30 backdrop-blur-sm p-4 rounded-lg">
+                        <h3 class="text-[#FF8F17] text-2xl md:text-3xl font-bold">150+</h3>
+                        <p class="text-white text-sm md:text-base">Projects Done</p>
+                    </div>
+                    <div class="bg-black/30 backdrop-blur-sm p-4 rounded-lg">
+                        <h3 class="text-[#FF8F17] text-2xl md:text-3xl font-bold">15+</h3>
+                        <p class="text-white text-sm md:text-base">Years Experience</p>
+                    </div>
+                    <div class="bg-black/30 backdrop-blur-sm p-4 rounded-lg">
+                        <h3 class="text-[#FF8F17] text-2xl md:text-3xl font-bold">50+</h3>
+                        <p class="text-white text-sm md:text-base">Expert Team</p>
+                    </div>
+                    <div class="bg-black/30 backdrop-blur-sm p-4 rounded-lg">
+                        <h3 class="text-[#FF8F17] text-2xl md:text-3xl font-bold">98%</h3>
+                        <p class="text-white text-sm md:text-base">Satisfaction Rate</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- About Section -->
+    <section class="bg-gray-150 py-16 lg:py-24 px-4 sm:px-6 lg:px-20 bg-gray-200">
+        <div class="container mx-auto max-w-7xl">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center order-1">
+                <!-- Image Grid -->
+                <div class="relative grid grid-cols-2 gap-2 
+                        h-[350px] sm:h-[400px] md:h-[450px] lg:h-[500px] xl:h-[550px] 
+                        order-2 lg:order-1">
+                    <!-- Top Images -->
+                    <div
+                        class="h-[160px] sm:h-[180px] md:h-[200px] lg:h-[240px] xl:h-[260px] 
+                            overflow-hidden rounded-lg shadow-lg transform hover:scale-105 transition-all duration-500">
+                        <img src="img/img1.jpg" alt="Construction Site 1" class="w-full h-full object-cover"
+                            loading="lazy">
+                    </div>
+                    <div
+                        class="h-[160px] sm:h-[180px] md:h-[200px] lg:h-[240px] xl:h-[260px] 
+                            overflow-hidden rounded-lg shadow-lg transform hover:scale-105 transition-all duration-500">
+                        <img src="img/img3.jpg" alt="Construction Site 2" class="w-full h-full object-cover"
+                            loading="lazy">
+                    </div>
+                    <!-- Bottom Image -->
+                    <div
+                        class="col-span-2 h-[160px] sm:h-[180px] md:h-[250px] lg:h-[240px] xl:h-[260px] 
+                            overflow-hidden rounded-lg shadow-lg transform hover:scale-105 transition-all duration-500">
+                        <img src="img/img2.jpg" alt="Construction Site 3" class="w-full h-full object-cover"
+                            loading="lazy">
+                    </div>
+                </div>
+                <!-- Content -->
+                <div class="space-y-3 sm:space-y-8  lg:order-2 order-2">
+                    <!-- Section Header -->
+                    <div class="space-y-2 sm:space-y-3 text-center lg:text-left">
+                        <span class="text-[#FF8F17] font-semibold 
+                               text-sm sm:text-base md:text-lg xl:text-xl inline-block">
+                            About Us
+                        </span>
+                        <h2 class="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 
+                             font-bold text-gray-900 leading-tight">
+                            Building Excellence Since 2005
+                        </h2>
+                    </div>
+                    <!-- Text Content -->
+                    <div class="space-y-4 sm:space-y-6">
+                        <p class="text-gray-600 
+                             text-sm sm:text-base md:text-lg xl:text-xl 
+                             leading-relaxed">
+                            Daryeel Construction was founded in 2005 with a vision to transform the construction
+                            industry.
+                            What started as a small local contractor has grown into a leading construction company,
+                            completing
+                            over 150 projects across residential, commercial, and road construction sectors.
+                        </p>
+                        <p class="text-gray-600 
+                             text-sm sm:text-base md:text-lg xl:text-xl 
+                             leading-relaxed">
+                            Over the years, we have built a reputation for excellence, reliability, and innovation. Our
+                            journey
+                            has been marked by a dedication to quality, a passion for innovation, and an unwavering
+                            commitment
+                            to client satisfaction.
+                        </p>
+                    </div>
+                    <!-- Features Grid -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 mt-6 sm:mt-8">
+                        <!-- Quality Work Feature -->
+                        <div class="flex items-center gap-3 sm:gap-4 bg-white p-4 rounded-lg shadow-sm">
+                            <div class="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 
+                                  bg-[#FF8F17] rounded-full flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-medal text-white text-lg sm:text-xl md:text-2xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900 
+                                     text-sm sm:text-base md:text-lg xl:text-xl">
+                                    Quality Work
+                                </h4>
+                                <p class="text-xs sm:text-sm md:text-base xl:text-lg text-gray-600">
+                                    Highest standards in construction
+                                </p>
+                            </div>
+                        </div>
+                        <!-- On-Time Delivery Feature -->
+                        <div class="flex items-center gap-3 sm:gap-4 bg-white p-4 rounded-lg shadow-sm">
+                            <div class="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 
+                                  bg-[#FF8F17] rounded-full flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-clock text-white text-lg sm:text-xl md:text-2xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900 
+                                     text-sm sm:text-base md:text-lg xl:text-xl">
+                                    On-Time Delivery
+                                </h4>
+                                <p class="text-xs sm:text-sm md:text-base xl:text-lg text-gray-600">
+                                    Meeting project deadlines
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- CTA Button -->
+                    <div class="flex justify-center lg:justify-start pt-4">
+                        <button class="w-full sm:w-auto px-6 sm:px-8 md:px-10 
+                                 py-2.5 sm:py-3 md:py-4
+                                 bg-[#FF8F17] text-white font-semibold rounded-lg 
+                                 text-sm sm:text-base md:text-lg
+                                 hover:bg-[#e67f0d] transition-all duration-300 
+                                 transform hover:-translate-y-1">
+                            Learn More About Us
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Why Choose Us -->
+    <section class="py-16 bg-gray-150">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section Header -->
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                    Why Choose <span class="text-[#FF8F17]">Us?</span>
+                </h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    We deliver excellence through our commitment to quality, innovation, and customer satisfaction
+                </p>
+            </div>
+            <!-- Cards Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Card 1 -->
+                <div
+                    class="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden group">
+                    <div class="p-6">
+                        <div
+                            class="w-14 h-14 bg-[#FF8F17]/10 rounded-full flex items-center justify-center mb-6 group-hover:bg-[#FF8F17] transition-colors duration-300">
+                            <i
+                                class="fas fa-hammer text-[#FF8F17] text-2xl group-hover:text-white transition-colors duration-300"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">Quality Craftsmanship</h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            Every project is built to the highest standards, ensuring durability and excellence.
+                        </p>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div
+                    class="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden group">
+                    <div class="p-6">
+                        <div
+                            class="w-14 h-14 bg-[#FF8F17]/10 rounded-full flex items-center justify-center mb-6 group-hover:bg-[#FF8F17] transition-colors duration-300">
+                            <i
+                                class="fas fa-users text-[#FF8F17] text-2xl group-hover:text-white transition-colors duration-300"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">Experienced Team</h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            Our team of 50+ experts brings years of experience and expertise to every job.
+                        </p>
+                    </div>
+                </div>
+                <!-- Card 3 -->
+                <div
+                    class="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden group">
+                    <div class="p-6">
+                        <div
+                            class="w-14 h-14 bg-[#FF8F17]/10 rounded-full flex items-center justify-center mb-6 group-hover:bg-[#FF8F17] transition-colors duration-300">
+                            <i
+                                class="fas fa-heart text-[#FF8F17] text-2xl group-hover:text-white transition-colors duration-300"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">Client-Centric Approach</h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            We prioritize your needs and ensure your satisfaction at every stage.
+                        </p>
+                    </div>
+                </div>
+                <!-- Card 4 -->
+                <div
+                    class="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden group">
+                    <div class="p-6">
+                        <div
+                            class="w-14 h-14 bg-[#FF8F17]/10 rounded-full flex items-center justify-center mb-6 group-hover:bg-[#FF8F17] transition-colors duration-300">
+                            <i
+                                class="fas fa-lightbulb text-[#FF8F17] text-2xl group-hover:text-white transition-colors duration-300"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">Innovation</h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            We use the latest technology and methods to deliver sustainable solutions.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Our Values -->
+    <section class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section Header -->
+            <div class="text-center mb-12">
+                <span class="text-[#FF8F17] font-semibold text-sm sm:text-base">Our Core Principles</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-2 mb-4">
+                    Our <span class="text-[#FF8F17]">Values</span>
+                </h2>
+                <p class="text-gray-600 max-w-2xl mx-auto text-base sm:text-lg">
+                    Our core values guide everything we do at Daryeel Construction
+                </p>
+            </div>
+            <!-- Values Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Value Card 1 -->
+                <div class="group hover:-translate-y-2 transition-transform duration-300">
+                    <div
+                        class="bg-gray-50 rounded-2xl p-8 h-full border border-gray-100 hover:border-[#FF8F17] transition-colors">
+                        <div class="mb-6">
+                            <div
+                                class="w-16 h-16 bg-[#FF8F17]/10 rounded-full flex items-center justify-center group-hover:bg-[#FF8F17] transition-colors duration-300">
+                                <i
+                                    class="fas fa-handshake text-[#FF8F17] text-2xl group-hover:text-white transition-colors"></i>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Integrity</h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            We are honest and transparent in all our dealings, building trust with our clients and
+                            partners.
+                        </p>
+                    </div>
+                </div>
+                <!-- Value Card 2 -->
+                <div class="group hover:-translate-y-2 transition-transform duration-300">
+                    <div
+                        class="bg-gray-50 rounded-2xl p-8 h-full border border-gray-100 hover:border-[#FF8F17] transition-colors">
+                        <div class="mb-6">
+                            <div
+                                class="w-16 h-16 bg-[#FF8F17]/10 rounded-full flex items-center justify-center group-hover:bg-[#FF8F17] transition-colors duration-300">
+                                <i
+                                    class="fas fa-award text-[#FF8F17] text-2xl group-hover:text-white transition-colors"></i>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Excellence</h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            We strive for the highest quality in every project, ensuring that our work meets and exceeds
+                            expectations.
+                        </p>
+                    </div>
+                </div>
+                <!-- Value Card 3 -->
+                <div class="group hover:-translate-y-2 transition-transform duration-300">
+                    <div
+                        class="bg-gray-50 rounded-2xl p-8 h-full border border-gray-100 hover:border-[#FF8F17] transition-colors">
+                        <div class="mb-6">
+                            <div
+                                class="w-16 h-16 bg-[#FF8F17]/10 rounded-full flex items-center justify-center group-hover:bg-[#FF8F17] transition-colors duration-300">
+                                <i
+                                    class="fas fa-leaf text-[#FF8F17] text-2xl group-hover:text-white transition-colors"></i>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Sustainability</h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            We are committed to environmentally friendly practices, minimizing our impact on the
+                            environment.
+                        </p>
+                    </div>
+                </div>
+                <!-- Value Card 4 -->
+                <div class="group hover:-translate-y-2 transition-transform duration-300">
+                    <div
+                        class="bg-gray-50 rounded-2xl p-8 h-full border border-gray-100 hover:border-[#FF8F17] transition-colors">
+                        <div class="mb-6">
+                            <div
+                                class="w-16 h-16 bg-[#FF8F17]/10 rounded-full flex items-center justify-center group-hover:bg-[#FF8F17] transition-colors duration-300">
+                                <i
+                                    class="fas fa-users text-[#FF8F17] text-2xl group-hover:text-white transition-colors"></i>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Teamwork</h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            We believe in collaboration and mutual respect, working together to achieve our goals.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Services Section -->
+    <section class="py-16">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section Header -->
+            <div class="text-center mb-12">
+                <span class="text-[#FF8F17] font-semibold text-sm sm:text-base">Our Services</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-2 mb-4">
+                    What We <span class="text-[#FF8F17]">Offer</span>
+                </h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    Comprehensive construction solutions tailored to your needs
+                </p>
+            </div>
+            <!-- Services Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Service Card 1 -->
+                <div
+                    class="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-all duration-300 group hover:-translate-y-2">
+                    <div
+                        class="w-16 h-16 bg-[#FF8F17]/10 rounded-full flex items-center justify-center mb-6 group-hover:bg-[#FF8F17] transition-colors duration-300">
+                        <i
+                            class="fas fa-home text-[#FF8F17] text-2xl group-hover:text-white transition-colors duration-300"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 group-hover:text-[#FF8F17] transition-colors duration-300">
+                        Residential
+                        Construction</h3>
+                    <p class="text-gray-600 leading-relaxed">Custom home building and renovations with attention to
+                        detail and quality craftsmanship.</p>
+                </div>
+                <!-- Service Card 2 -->
+                <div
+                    class="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-all duration-300 group hover:-translate-y-2">
+                    <div
+                        class="w-16 h-16 bg-[#FF8F17]/10 rounded-full flex items-center justify-center mb-6 group-hover:bg-[#FF8F17] transition-colors duration-300">
+                        <i
+                            class="fas fa-building text-[#FF8F17] text-2xl group-hover:text-white transition-colors duration-300e"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 group-hover:text-[#FF8F17] transition-colors duration-300">
+                        Commercial
+                        Construction</h3>
+                    <p class="text-gray-600 leading-relaxed">Professional construction services for offices, retail
+                        spaces, and commercial buildings.</p>
+                </div>
+                <!-- Service Card 3 -->
+                <div
+                    class="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-all duration-300 group hover:-translate-y-2">
+                    <div
+                        class="w-16 h-16 bg-[#FF8F17]/10 rounded-full flex items-center justify-center mb-6 group-hover:bg-[#FF8F17] transition-colors duration-300">
+                        <i
+                            class="fas fa-road text-[#FF8F17] text-2xl group-hover:text-white transition-colors duration-300"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 group-hover:text-[#FF8F17] transition-colors duration-300">
+                        Road
+                        Construction</h3>
+                    <p class="text-gray-600 leading-relaxed">Specialized in road construction and infrastructure
+                        development projects.</p>
+                </div>
+                <!-- Service Card 4 -->
+                <div
+                    class="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-all duration-300 group hover:-translate-y-2">
+                    <div
+                        class="w-16 h-16 bg-[#FF8F17]/10 rounded-full flex items-center justify-center mb-6 group-hover:bg-[#FF8F17] transition-colors duration-300">
+                        <i
+                            class="fas fa-drafting-compass text-[#FF8F17] text-2xl transition-colors duration-300 group-hover:text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 group-hover:text-[#FF8F17] transition-colors duration-300">
+                        Renovation
+                        Services</h3>
+                    <p class="text-gray-600 leading-relaxed">Complete renovation and remodeling services for residential
+                        and commercial spaces.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Projects Gallery Section -->
+    <section class="py-10">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section Header -->
+            <div class="text-center mb-8">
+                <span class="text-[#FF8F17] font-semibold text-sm">Our Portfolio</span>
+                <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mt-2 mb-2">
+                    Featured <span class="text-[#FF8F17]">Projects</span>
+                </h2>
+                <p class="text-gray-600 text-sm max-w-2xl mx-auto">
+                    Explore our diverse portfolio of successful construction projects
+                </p>
+            </div>
+            <!-- Project Categories -->
+            <div class="flex flex-wrap justify-center gap-3 mb-8">
+                <button
+                    class="px-4 py-1.5 rounded-full bg-[#FF8F17] text-white text-sm font-medium hover:bg-[#e67f0d] transition-colors">
+                    All Projects
+                </button>
+                <button
+                    class="px-4 py-1.5 rounded-full bg-gray-200 text-gray-700 text-sm font-medium hover:bg-gray-300 transition-colors">
+                    Residential
+                </button>
+                <button
+                    class="px-4 py-1.5 rounded-full bg-gray-200 text-gray-700 text-sm font-medium hover:bg-gray-300 transition-colors">
+                    Commercial
+                </button>
+                <button
+                    class="px-4 py-1.5 rounded-full bg-gray-200 text-gray-700 text-sm font-medium hover:bg-gray-300 transition-colors">
+                    Infrastructure
+                </button>
+            </div>
+            <!-- Gallery Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Project Card 1 -->
+                <div class="group relative overflow-hidden rounded-lg shadow-md cursor-pointer">
+                    <div class="relative h-[280px]">
+                        <img src="img/img4.jpg" alt="Luxury Mansion"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                            loading="lazy">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300">
+                            <div
+                                class="absolute bottom-0 left-0 right-0 p-4 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                                <span class="inline-block px-3 py-1 bg-[#FF8F17] text-white text-xs rounded-full mb-2">
+                                    Residential
+                                </span>
+                                <h3 class="text-lg font-semibold text-white mb-2">Luxury Mansion</h3>
+                                <p class="text-sm text-gray-200 mb-3">Modern architectural masterpiece with premium
+                                    finishes</p>
+                                <button
+                                    class="px-4 py-1.5 bg-white text-gray-900 text-sm rounded-md font-medium hover:bg-[#FF8F17] hover:text-white transition-colors">
+                                    View Details
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project Card 2 -->
+                <div class="group relative overflow-hidden rounded-lg shadow-md cursor-pointer">
+                    <div class="relative h-[280px]">
+                        <img src="img/img5.jpg" alt="Luxury Mansion"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                            loading="lazy">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300">
+                            <div
+                                class="absolute bottom-0 left-0 right-0 p-4 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                                <span class="inline-block px-3 py-1 bg-[#FF8F17] text-white text-xs rounded-full mb-2">
+                                    Residential
+                                </span>
+                                <h3 class="text-lg font-semibold text-white mb-2">Futuristic Jungle Retreat</h3>
+                                <p class="text-sm text-gray-200 mb-3">A modern architectural wonder blending seamlessly
+                                    with the
+                                    lush jungle environment.</p>
+                                <button
+                                    class="px-4 py-1.5 bg-white text-gray-900 text-sm rounded-md font-medium hover:bg-[#FF8F17] hover:text-white transition-colors">
+                                    View Details
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project Card 3 -->
+                <div class="group relative overflow-hidden rounded-lg shadow-md cursor-pointer">
+                    <div class="relative h-[280px]">
+                        <img src="img/img6.jpg" alt="Luxury Mansion"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                            loading="lazy">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300">
+                            <div
+                                class="absolute bottom-0 left-0 right-0 p-4 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                                <span class="inline-block px-3 py-1 bg-[#FF8F17] text-white text-xs rounded-full mb-2">
+                                    Residential
+                                </span>
+                                <h3 class="text-lg font-semibold text-white mb-2">Coastal Dream Villa</h3>
+                                <p class="text-sm text-gray-200 mb-3">A stunning beachfront property with classic
+                                    southern charm
+                                    and breathtaking ocean views.</p>
+                                <button
+                                    class="px-4 py-1.5 bg-white text-gray-900 text-sm rounded-md font-medium hover:bg-[#FF8F17] hover:text-white transition-colors">
+                                    View Details
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project Card 4 -->
+                <div class="group relative overflow-hidden rounded-lg shadow-md cursor-pointer">
+                    <div class="relative h-[280px]">
+                        <img src="img/img7.jpg" alt="Luxury Mansion"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                            loading="lazy">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300">
+                            <div
+                                class="absolute bottom-0 left-0 right-0 p-4 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                                <span class="inline-block px-3 py-1 bg-[#FF8F17] text-white text-xs rounded-full mb-2">
+                                    Residential
+                                </span>
+                                <h3 class="text-lg font-semibold text-white mb-2">Minimalist Luxury Home</h3>
+                                <p class="text-sm text-gray-200 mb-3">A sleek, modern residence featuring open spaces,
+                                    warm
+                                    lighting, and a seamless indoor-outdoor experience.</p>
+                                <button
+                                    class="px-4 py-1.5 bg-white text-gray-900 text-sm rounded-md font-medium hover:bg-[#FF8F17] hover:text-white transition-colors">
+                                    View Details
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project Card 5 -->
+                <div class="group relative overflow-hidden rounded-lg shadow-md cursor-pointer">
+                    <div class="relative h-[280px]">
+                        <img src="img/img8.jpg" alt="Luxury Mansion"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                            loading="lazy">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300">
+                            <div
+                                class="absolute bottom-0 left-0 right-0 p-4 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                                <span class="inline-block px-3 py-1 bg-[#FF8F17] text-white text-xs rounded-full mb-2">
+                                    Residential
+                                </span>
+                                <h3 class="text-lg font-semibold text-white mb-2">Innovative Roller Coaster Design</h3>
+                                <p class="text-sm text-gray-200 mb-3">A complex and thrilling roller coaster structure
+                                    showcasing engineering brilliance.</p>
+                                <button
+                                    class="px-4 py-1.5 bg-white text-gray-900 text-sm rounded-md font-medium hover:bg-[#FF8F17] hover:text-white transition-colors">
+                                    View Details
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project Card 6 -->
+                <div class="group relative overflow-hidden rounded-lg shadow-md cursor-pointer">
+                    <div class="relative h-[280px]">
+                        <img src="img/img9.jpg" alt="Luxury Mansion"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                            loading="lazy">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300">
+                            <div
+                                class="absolute bottom-0 left-0 right-0 p-4 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                                <span class="inline-block px-3 py-1 bg-[#FF8F17] text-white text-xs rounded-full mb-2">
+                                    Residential
+                                </span>
+                                <h3 class="text-lg font-semibold text-white mb-2">Underground Infrastructure Project
+                                </h3>
+                                <p class="text-sm text-gray-200 mb-3">tunnel construction project demonstrating
+                                    precision engineering and workforce dedication.</p>
+                                <button
+                                    class="px-4 py-1.5 bg-white text-gray-900 text-sm rounded-md font-medium hover:bg-[#FF8F17] hover:text-white transition-colors">
+                                    View Details
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Load More Button -->
+            <div class="text-center mt-8">
+                <button
+                    class="px-6 py-2 bg-[#FF8F17] text-white text-sm rounded-md font-medium hover:bg-[#e67f0d] transition-all duration-300">
+                    View All Projects
+                    <i class="fas fa-arrow-right ml-2"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog And News Section -->
+    <section class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section Header -->
+            <div class="text-center mb-12">
+                <span class="text-[#FF8F17] font-semibold text-sm sm:text-base">Latest Updates</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-2 mb-4">
+                    Blogs And <span class="text-[#FF8F17]">News</span>
+                </h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    Stay updated with our latest news, articles, and project updates
+                </p>
+            </div>
+            <!-- Blog Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Blog Card 1 -->
+                <div
+                    class="bg-white rounded-xl overflow-hidden shadow-lg transition-transform duration-300 hover:-translate-y-2">
+                    <div class="relative">
+                        <img src="img/img10.jpg" alt="Latest News" class="w-full h-48 object-cover" loading="lazy">
+                        <div class="absolute top-4 left-4">
+                            <span class="bg-[#FF8F17] text-white text-xs px-3 py-1 rounded-full">
+                                News
+                            </span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="flex items-center text-sm text-gray-500">
+                                <i class="far fa-calendar mr-2"></i>
+                                <span>June 15, 2023</span>
+                            </div>
+                            <div class="flex items-center text-sm text-gray-500">
+                                <i class="far fa-user mr-2"></i>
+                                <span>Admin</span>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3 group-hover:text-[#FF8F17] transition-colors">
+                            Latest Construction Industry Updates
+                        </h3>
+                        <p class="text-gray-600 mb-4 line-clamp-2">
+                            Stay updated with the latest news and developments from Daryeel Construction and the
+                            industry.
+                        </p>
+                        <a href="#"
+                            class="inline-flex items-center text-[#FF8F17] font-medium hover:text-[#e67f0d] transition-colors">
+                            Read More
+                            <i class="fas fa-arrow-right ml-2 transition-transform group-hover:translate-x-2"></i>
+                        </a>
+                    </div>
+                </div>
+                <!-- Blog Card 2 -->
+                <div
+                    class="bg-white rounded-xl overflow-hidden shadow-lg transition-transform duration-300 hover:-translate-y-2">
+                    <div class="relative">
+                        <img src="img/img11.jpg" alt="Construction Articles" class="w-full h-48 object-cover"
+                            loading="lazy">
+                        <div class="absolute top-4 left-4">
+                            <span class="bg-[#FF8F17] text-white text-xs px-3 py-1 rounded-full">
+                                Article
+                            </span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="flex items-center text-sm text-gray-500">
+                                <i class="far fa-calendar mr-2"></i>
+                                <span>June 10, 2023</span>
+                            </div>
+                            <div class="flex items-center text-sm text-gray-500">
+                                <i class="far fa-user mr-2"></i>
+                                <span>Admin</span>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3 group-hover:text-[#FF8F17] transition-colors">
+                            Construction Best Practices Guide
+                        </h3>
+                        <p class="text-gray-600 mb-4 line-clamp-2">
+                            Read our comprehensive articles on construction tips, trends, and industry best practices.
+                        </p>
+                        <a href="#"
+                            class="inline-flex items-center text-[#FF8F17] font-medium hover:text-[#e67f0d] transition-colors">
+                            Read More
+                            <i class="fas fa-arrow-right ml-2 transition-transform group-hover:translate-x-2"></i>
+                        </a>
+                    </div>
+                </div>
+                <!-- Blog Card 3 -->
+                <div
+                    class="bg-white rounded-xl overflow-hidden shadow-lg transition-transform duration-300 hover:-translate-y-2">
+                    <div class="relative">
+                        <img src="img/img12.jpg" alt="Project Updates" class="w-full h-48 object-cover" loading="lazy">
+                        <div class="absolute top-4 left-4">
+                            <span class="bg-[#FF8F17] text-white text-xs px-3 py-1 rounded-full">
+                                Updates
+                            </span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="flex items-center text-sm text-gray-500">
+                                <i class="far fa-calendar mr-2"></i>
+                                <span>June 5, 2023</span>
+                            </div>
+                            <div class="flex items-center text-sm text-gray-500">
+                                <i class="far fa-user mr-2"></i>
+                                <span>Admin</span>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3 group-hover:text-[#FF8F17] transition-colors">
+                            Latest Project Milestones 2025
+                        </h3>
+                        <p class="text-gray-600 mb-4 line-clamp-2">
+                            Get the latest updates on our ongoing projects and upcoming developments.
+                        </p>
+                        <a href="#"
+                            class="inline-flex items-center text-[#FF8F17] font-medium hover:text-[#e67f0d] transition-colors">
+                            Read More
+                            <i class="fas fa-arrow-right ml-2 transition-transform group-hover:translate-x-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Testimonials Section -->
+    <section class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section Header -->
+            <div class="text-center mb-12">
+                <span class="text-[#FF8F17] font-semibold text-sm sm:text-base">What Our Clients Say</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-2 mb-4">
+                    Client <span class="text-[#FF8F17]">Testimonials</span>
+                </h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    Read what our satisfied clients have to say about their experience working with us
+                </p>
+            </div>
+            <!-- Testimonials Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonial Card 1 -->
+                <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 relative">
+                    <!-- Quote Icon -->
+                    <div class="absolute -top-5 right-6">
+                        <div class="bg-[#FF8F17] w-10 h-10 rounded-full flex items-center justify-center">
+                            <i class="fas fa-quote-right text-white"></i>
+                        </div>
+                    </div>
+                    <!-- Testimonial Content -->
+                    <div class="mb-6">
+                        <p class="text-gray-600 italic mb-4">
+                            "Working with Daryeel Construction was an exceptional experience. Their attention to detail
+                            and commitment to quality exceeded our expectations. They delivered our project on time and
+                            within budget."
+                        </p>
+                        <!-- Rating -->
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                        </div>
+                    </div>
+                    <!-- Client Info -->
+                    <div class="flex items-center gap-4">
+                        <div class="w-16 h-16 rounded-full overflow-hidden">
+                            <img src="img/user1.jpg" alt="John Doe" class="w-full h-full object-cover" loading="lazy">
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-semibold text-gray-900">John Doe</h4>
+                            <p class="text-[#FF8F17]">House Owner</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Testimonial Card 2 -->
+                <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 relative">
+                    <!-- Quote Icon -->
+                    <div class="absolute -top-5 right-6">
+                        <div class="bg-[#FF8F17] w-10 h-10 rounded-full flex items-center justify-center">
+                            <i class="fas fa-quote-right text-white"></i>
+                        </div>
+                    </div>
+                    <!-- Testimonial Content -->
+                    <div class="mb-6">
+                        <p class="text-gray-600 italic mb-4">
+                            "The team at Daryeel Construction demonstrated exceptional professionalism and expertise.
+                            Their innovative solutions and quality workmanship transformed our vision into reality."
+                        </p>
+                        <!-- Rating -->
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                        </div>
+                    </div>
+                    <!-- Client Info -->
+                    <div class="flex items-center gap-4">
+                        <div class="w-16 h-16 rounded-full overflow-hidden">
+                            <img src="img/user2.jpg" alt="Jane Smith" class="w-full h-full object-cover" loading="lazy">
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-semibold text-gray-900">Jane Smith</h4>
+                            <p class="text-[#FF8F17]">Business Owner</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Testimonial Card 3 -->
+                <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 relative">
+                    <!-- Quote Icon -->
+                    <div class="absolute -top-5 right-6">
+                        <div class="bg-[#FF8F17] w-10 h-10 rounded-full flex items-center justify-center">
+                            <i class="fas fa-quote-right text-white"></i>
+                        </div>
+                    </div>
+                    <!-- Testimonial Content -->
+                    <div class="mb-6">
+                        <p class="text-gray-600 italic mb-4">
+                            "Daryeel Construction's commitment to excellence is unmatched. Their team's dedication and
+                            expertise made our construction project a seamless and enjoyable experience."
+                        </p>
+                        <!-- Rating -->
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star-half-alt text-yellow-400"></i>
+                        </div>
+                    </div>
+                    <!-- Client Info -->
+                    <div class="flex items-center gap-4">
+                        <div class="w-16 h-16 rounded-full overflow-hidden">
+                            <img src="img/user3.jpg" alt="Mike Johnson" class="w-full h-full object-cover"
+                                loading="lazy">
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-semibold text-gray-900">Mike Johnson</h4>
+                            <p class="text-[#FF8F17]">Project Manager</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- FAQ Section 
+    <section class="py-16 bg-white mb-16">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <!--Section Header-->
+            <div class="text-center mb-12">
+                <span class="text-[#FF8F17] font-semibold text-sm sm:text-base">Got Questions?</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-2 mb-4">
+                    Frequently Asked <span class="text-[#FF8F17]">Questions</span>
+                </h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    Find answers to common questions about our services and processes
+                </p>
+            </div>
+            <!-- FAQ Grid -->
+            <div class="max-w-3xl mx-auto space-y-4">
+                <!-- FAQ Item 1 -->
+                <div class="border border-gray-200 rounded-lg overflow-hidden">
+                    <button
+                        class="w-full flex items-center justify-between p-4 bg-white hover:bg-gray-50 transition-colors"
+                        onclick="toggleFAQ(this)">
+                        <span class="text-lg font-semibold text-gray-900">How can I contact Daryeel Construction?</span>
+                        <i class="fas fa-chevron-down text-[#FF8F17] transition-transform duration-300"></i>
+                    </button>
+                    <div class="hidden p-4 bg-gray-50 border-t border-gray-200">
+                        <p class="text-gray-600">
+                            You can reach us through multiple channels:
+                        </p>
+                        <ul class="mt-2 space-y-2 text-gray-600">
+                            <li class="flex items-center">
+                                <i class="fas fa-envelope text-[#FF8F17] mr-2"></i>
+                                Email: info@daryeelconstruction.com
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-phone text-[#FF8F17] mr-2"></i>
+                                Phone: +123 456 7890
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-location-dot text-[#FF8F17] mr-2"></i>
+                                Office: 123 Construction Street, City, Country
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- FAQ Item 2 -->
+                <div class="border border-gray-200 rounded-lg overflow-hidden">
+                    <button
+                        class="w-full flex items-center justify-between p-4 bg-white hover:bg-gray-50 transition-colors"
+                        onclick="toggleFAQ(this)">
+                        <span class="text-lg font-semibold text-gray-900">What types of construction services do you
+                            offer?</span>
+                        <i class="fas fa-chevron-down text-[#FF8F17] transition-transform duration-300"></i>
+                    </button>
+                    <div class="hidden p-4 bg-gray-50 border-t border-gray-200">
+                        <p class="text-gray-600 mb-3">
+                            We offer a comprehensive range of construction services including:
+                        </p>
+                        <ul class="space-y-2 text-gray-600">
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-[#FF8F17] mr-2"></i>
+                                Residential Construction
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-[#FF8F17] mr-2"></i>
+                                Commercial Construction
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-[#FF8F17] mr-2"></i>
+                                Road Construction
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-[#FF8F17] mr-2"></i>
+                                Renovation Services
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- FAQ Item 3 -->
+                <div class="border border-gray-200 rounded-lg overflow-hidden">
+                    <button
+                        class="w-full flex items-center justify-between p-4 bg-white hover:bg-gray-50 transition-colors"
+                        onclick="toggleFAQ(this)">
+                        <span class="text-lg font-semibold text-gray-900">How can I get updates on my project?</span>
+                        <i class="fas fa-chevron-down text-[#FF8F17] transition-transform duration-300"></i>
+                    </button>
+                    <div class="hidden p-4 bg-gray-50 border-t border-gray-200">
+                        <p class="text-gray-600">
+                            We provide regular project updates through multiple channels:
+                        </p>
+                        <ul class="mt-2 space-y-2 text-gray-600">
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-[#FF8F17] mr-2"></i>
+                                Dedicated project manager
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-[#FF8F17] mr-2"></i>
+                                Online client portal
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-[#FF8F17] mr-2"></i>
+                                Weekly progress reports
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-[#FF8F17] mr-2"></i>
+                                Regular site visits
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- FAQ Item 4 -->
+                <div class="border border-gray-200 rounded-lg overflow-hidden">
+                    <button
+                        class="w-full flex items-center justify-between p-4 bg-white hover:bg-gray-50 transition-colors"
+                        onclick="toggleFAQ(this)">
+                        <span class="text-lg font-semibold text-gray-900">What is the typical timeline for a
+                            construction project?</span>
+                        <i class="fas fa-chevron-down text-[#FF8F17] transition-transform duration-300"></i>
+                    </button>
+                    <div class="hidden p-4 bg-gray-50 border-t border-gray-200">
+                        <p class="text-gray-600">
+                            Project timelines vary depending on several factors:
+                        </p>
+                        <ul class="mt-2 space-y-2 text-gray-600">
+                            <li class="flex items-center">
+                                <i class="fas fa-clock text-[#FF8F17] mr-2"></i>
+                                Project scope and complexity
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-clock text-[#FF8F17] mr-2"></i>
+                                Permit requirements
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-clock text-[#FF8F17] mr-2"></i>
+                                Weather conditions
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-clock text-[#FF8F17] mr-2"></i>
+                                Material availability
+                            </li>
+                        </ul>
+                        <p class="mt-3 text-gray-600">
+                            We provide detailed timeline estimates during the initial consultation.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!-- Contact CTA -->
+            <div class="text-center mt-12">
+                <p class="text-gray-600 mb-4">Still have questions? We're here to help!</p>
+                <button class="px-6 py-3 bg-[#FF8F17] text-white font-medium rounded-lg 
+                         hover:bg-[#e67f0d] transition-all duration-300 transform hover:-translate-y-1">
+                    Contact Us
+                    <i class="fas fa-arrow-right ml-2"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer class="bg-[#1a1a1a] text-white pt-16 pb-8">
+        <div class="container mx-auto px-4 sm:px-4 lg:px-8">
+            <!-- Main Footer Content -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                <!-- Company Info -->
+                <div>
+                    <h3 class="text-2xl font-bold mb-6">
+                        Dar<span class="text-[#FF8F17]">yeel</span>
+                    </h3>
+                    <p class="text-gray-400 mb-6">
+                        Building excellence through innovation and dedication. Your trusted partner in construction
+                        since 2005.
+                    </p>
+                    <!-- Contact Info -->
+                    <div class="space-y-4">
+                        <div class="flex items-center">
+                            <i class="fas fa-envelope text-[#FF8F17] mr-3"></i>
+                            <span class="text-gray-400">info@daryeelconstruction.com</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-phone text-[#FF8F17] mr-3"></i>
+                            <span class="text-gray-400">+123 456 7890</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-location-dot text-[#FF8F17] mr-3"></i>
+                            <span class="text-gray-400">123 Construction Street, City, Country</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="text-xl font-semibold mb-6">Quick Links</h3>
+                    <ul class="space-y-3">
+                        <li>
+                            <a href="#home"
+                                class="text-gray-400 hover:text-[#FF8F17] transition-colors flex items-center">
+                                <i class="fas fa-chevron-right text-[#FF8F17] mr-2 text-sm"></i>
+                                Home
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#about"
+                                class="text-gray-400 hover:text-[#FF8F17] transition-colors flex items-center">
+                                <i class="fas fa-chevron-right text-[#FF8F17] mr-2 text-sm"></i>
+                                About Us
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#services"
+                                class="text-gray-400 hover:text-[#FF8F17] transition-colors flex items-center">
+                                <i class="fas fa-chevron-right text-[#FF8F17] mr-2 text-sm"></i>
+                                Services
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#projects"
+                                class="text-gray-400 hover:text-[#FF8F17] transition-colors flex items-center">
+                                <i class="fas fa-chevron-right text-[#FF8F17] mr-2 text-sm"></i>
+                                Projects
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#contact"
+                                class="text-gray-400 hover:text-[#FF8F17] transition-colors flex items-center">
+                                <i class="fas fa-chevron-right text-[#FF8F17] mr-2 text-sm"></i>
+                                Contact Us
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Our Services -->
+                <div>
+                    <h3 class="text-xl font-semibold mb-6">Our Services</h3>
+                    <ul class="space-y-3">
+                        <li>
+                            <a href="#residential"
+                                class="text-gray-400 hover:text-[#FF8F17] transition-colors flex items-center">
+                                <i class="fas fa-chevron-right text-[#FF8F17] mr-2 text-sm"></i>
+                                Residential Construction
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#commercial"
+                                class="text-gray-400 hover:text-[#FF8F17] transition-colors flex items-center">
+                                <i class="fas fa-chevron-right text-[#FF8F17] mr-2 text-sm"></i>
+                                Commercial Construction
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#renovation"
+                                class="text-gray-400 hover:text-[#FF8F17] transition-colors flex items-center">
+                                <i class="fas fa-chevron-right text-[#FF8F17] mr-2 text-sm"></i>
+                                Renovation Services
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#infrastructure"
+                                class="text-gray-400 hover:text-[#FF8F17] transition-colors flex items-center">
+                                <i class="fas fa-chevron-right text-[#FF8F17] mr-2 text-sm"></i>
+                                Infrastructure Projects
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Newsletter -->
+                <div>
+                    <h3 class="text-xl font-semibold mb-6">Newsletter</h3>
+                    <p class="text-gray-400 mb-4">
+                        Subscribe to our newsletter for updates and insights.
+                    </p>
+                    <form class="space-y-3">
+                        <div class="relative">
+                            <input type="email" placeholder="Your Email Address"
+                                class="w-full px-4 py-3 bg-gray-800 text-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#FF8F17]">
+                        </div>
+                        <button
+                            class="w-full px-4 py-3 bg-[#FF8F17] text-white rounded-lg hover:bg-[#e67f0d] transition-colors">
+                            Subscribe Now
+                        </button>
+                    </form>
+                    <!-- Social Media Links -->
+                    <div class="mt-6">
+                        <div class="flex space-x-4">
+                            <a href="#facebook"
+                                class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-[#FF8F17] transition-colors">
+                                <i class="fab fa-facebook-f text-white"></i>
+                            </a>
+                            <a href="#twitter"
+                                class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-[#FF8F17] transition-colors">
+                                <i class="fab fa-twitter text-white"></i>
+                            </a>
+                            <a href="#linkedin"
+                                class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-[#FF8F17] transition-colors">
+                                <i class="fab fa-linkedin-in text-white"></i>
+                            </a>
+                            <a href="#instagram"
+                                class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-[#FF8F17] transition-colors">
+                                <i class="fab fa-instagram text-white"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Footer Bottom -->
+            <div class="border-t border-gray-800 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-400 text-center md:text-left mb-4 md:mb-0">
+                        © 2025 <span class="text-[#FF8F17]">Daryeel Construction</span>. All rights reserved.
+                    </p>
+                    <div class="flex space-x-6">
+                        <a href="#terms" class="text-gray-400 hover:text-[#FF8F17] transition-colors">Terms of
+                            Service</a>
+                        <a href="#privacy" class="text-gray-400 hover:text-[#FF8F17] transition-colors">Privacy
+                            Policy</a>
+                        <a href="#cookies" class="text-gray-400 hover:text-[#FF8F17] transition-colors">Cookie
+                            Policy</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+
+
+    <script>
+        // Mobile menu toggle
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const mobileProjectsBtn = document.getElementById('mobileProjectsBtn');
+        const mobileProjectsMenu = mobileProjectsBtn.nextElementSibling;
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+        });
+
+        mobileProjectsBtn.addEventListener('click', () => {
+            mobileProjectsMenu.classList.toggle('hidden');
+            mobileProjectsBtn.querySelector('i').classList.toggle('rotate-180');
+        });
+        function toggleFAQ(button) {
+            // Toggle active state
+            button.classList.toggle('active');
+
+            // Get the content panel
+            const content = button.nextElementSibling;
+
+            // Toggle the content visibility
+            if (content.style.maxHeight) {
+                content.style.maxHeight = null;
+                content.classList.add('hidden');
+                button.querySelector('i').style.transform = 'rotate(0deg)';
+            } else {
+                content.classList.remove('hidden');
+                content.style.maxHeight = content.scrollHeight + "px";
+                button.querySelector('i').style.transform = 'rotate(180deg)';
+            }
+        }
+    </script>
+</body>
+
+</html>
